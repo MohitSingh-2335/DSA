@@ -1,19 +1,24 @@
 class Solution:
     def findSubstring(self, s: str, words: list[str]) -> list[int]:
 
-        import itertools
+        from collections import Counter
 
-        a = []
+        final = []
+        element = len(words[0])
+        lenght = len(words)
+        temp1_list = Counter(words)
 
-        ans = list(itertools.permutations(words))
+        for first in range(len(s)):
+            b = s[first : first + (element * lenght)]
+            a = []
+            for last in range(0, len(b), element):
+                c = b[last : last + element]
+                a.append(c)
+            temp2_list = Counter(a)
+            if temp1_list == temp2_list:
+                final.append(first)
 
-        for i in ans:
-            ind = s.find(''.join(i))
-            if ind != -1:
-                a.append(ind)
-        a.sort()
-
-        return a
+        return final
 
 s = input( )
 words = input( ).split()
