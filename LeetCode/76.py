@@ -1,22 +1,43 @@
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
+  
+        if len(t) > len(s):
+            return ""
+        start, end = 0, 0
+        result = ""
+        dub = []
+        tempT = list(t)
+        while(end < len(s)):
+            for j in range(end, len(s)):
+                if s[j] in tempT:
+                    tempT.remove(s[j])
+                    if len(tempT) == 0:
+                        end = j + 1
+                        break
+                elif s[j] in t:
+                    dub.append(s[j])
+                    if len(tempT) == 0:
+                        end = j + 1
+                        break
 
-        i = 0
-        temp = list(t)
-        count = 0
-        for j in range(len(s)):
-            a = s[i : j]
-            for k in range(len(a)):
-                for m in range(len(temp)):
-                    if a[k] == temp[m]:
-                        temp.remove(a[k])
-            if temp == []:
-                count = a
+            if len(tempT) > 0:
                 break
-        else:
-            j += 1
 
-        return count
+            for i in range(start, len(s)):
+                if s[i] not in t:
+                    continue
+                elif s[i] in dub:
+                    dub.remove(s[i])
+                else:
+                    start = i
+                    break
+
+            if result == "" or end-start < len(result):
+                result = s[start : end]
+
+            tempT.append(s[start])
+            start += 1
+        return result
 
 s = input()
 t = input()
