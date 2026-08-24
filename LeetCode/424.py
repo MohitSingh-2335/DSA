@@ -4,25 +4,33 @@ class Solution:
         start = 0
         end = 0
         highLen = 0
-        num = k
+        max_count = 0
         strS = list(s)
+        freq = {}
+
         if len(s) < 0:
             return 0
+
         while (end < len(strS)):
-            if strS[start] == strS[end] and num >= 0:
-                highLen = len(strS[start : end + 1])
-                end += 1
-            elif strS[start] != strS[end] and num > 0:
-                strS[end] = strS[start]
-                highLen = len(strS[start : end + 1])
-                num -= 1
-                end += 1
-            elif strS[start] != strS[end] and num == 0:
+            end_char = strS[end]
+            freq[end_char] = freq.get(end_char, 0) + 1
+            
+            if freq[end_char] > max_count:
+                max_count = freq[end_char]
+                
+            if (end - start + 1) - max_count > k:
+                start_char = strS[start]
+                freq[start_char] -= 1
                 start += 1
-                end = start + 1
-                num = k
-                strS = list(s)
+                
+            currentLen = end - start + 1
+            if currentLen > highLen:
+                highLen = currentLen
+                
+            end += 1
+
         return highLen
+
 
 s = input()
 k = map(int, input())
