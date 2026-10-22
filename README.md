@@ -443,3 +443,11 @@ Nothing DP-related is on this list simply for being hard — everything DP-relat
 6. **When to begin mixed practice:** immediately after Stage 15, not later — this is stated explicitly to prevent the exact "keep polishing, never transition" pattern that stalls people.
 7. **Is this sufficient for fresher placement prep?** Yes — comfortably sufficient for service-based companies, general campus rounds, startups, and most product-company fresher rounds.
 8. **What changes for top-tier product companies:** extend Phase 2 substantially (more timed mocks, harder mixed sets, explaining approach out loud), and selectively revisit specific Tier 3/4 items from Part 13 based on the target company's known interview style — plus push DP practice into genuinely unfamiliar, harder territory beyond this plan's core set.
+
+<!---LeetCode Topics Start-->
+# LeetCode Topics
+## Database
+|  |
+| ------- |
+| [1757-recyclable-and-low-fat-products](https://github.com/MohitSingh-2335/DSA/tree/master/1757-recyclable-and-low-fat-products) |
+<!---LeetCode Topics End-->
