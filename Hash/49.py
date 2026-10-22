@@ -11,19 +11,15 @@ class Solution:
         return ascii_val
 
     def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
-        sorted_list = []
-        sorted_dic = {}
-        anagram_dic = {}
-        for element in strs:
-            anagram_dic[element] = "".join(sorted(element))
-        for dic_key, dic_value in anagram_dic.items():
-            if dic_value not in sorted_dic:
-                sorted_dic[dic_value] = []
-            sorted_dic[dic_value].append(dic_key)
-        sorted_list = list(sorted_dic.values())
         if len(strs) == 0:
             return strs
-        return sorted_list
+        sorted_dic = {}
+        for element in strs:
+            value = "".join(sorted(element))
+            if value not in sorted_dic:
+                sorted_dic[value] = []
+            sorted_dic[value].append(element) 
+        return list(sorted_dic.values())
 
 
 strs = input().split()
